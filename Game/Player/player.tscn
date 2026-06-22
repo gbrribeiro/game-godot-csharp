@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://do42knwk0o0yn"]
+
+[ext_resource type="Script" uid="uid://b4jad70orq0o8" path="res://Game/Scripts/Player.cs" id="1_m57qa"]
+[ext_resource type="Script" uid="uid://dbi1xf2785j5w" path="res://Game/Scripts/Abstractions/Nodes/KillableNode.cs" id="2_s3asc"]
+[ext_resource type="Script" uid="uid://d1cmvjk5w0cqm" path="res://Game/Scripts/Abstractions/Nodes/AttackerNode.cs" id="3_letr6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8qry"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m57qa"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m57qa"]
+material = SubResource("StandardMaterial3D_m57qa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3asc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s3asc"]
+material = SubResource("StandardMaterial3D_s3asc")
+size = Vector3(0.5, 0.3, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_letr6"]
+radius = 1.0
+
+[node name="Player" type="CharacterBody3D" unique_id=740963833]
+script = ExtResource("1_m57qa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=870794595]
+shape = SubResource("CapsuleShape3D_u8qry")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="." unique_id=1742926554]
+mesh = SubResource("CapsuleMesh_m57qa")
+
+[node name="EyeMesh" type="MeshInstance3D" parent="." unique_id=142540410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6360789, -0.4205916)
+mesh = SubResource("BoxMesh_s3asc")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=569186825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0726612, -1)
+shape = SubResource("CylinderShape3D_letr6")
+
+[node name="KillableNode - Node3D" type="Node3D" parent="." unique_id=1393044732]
+script = ExtResource("2_s3asc")
+BaseHealth = 100.0
+Health = 100.0
+
+[node name="AttackerNode - Node3D" type="Node3D" parent="." unique_id=2093853822 node_paths=PackedStringArray("ShapeCast3D")]
+script = ExtResource("3_letr6")
+Damage = 10.0
+ShapeCast3D = NodePath("../ShapeCast3D")

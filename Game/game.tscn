@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ds8kwln6fw0dw"]
+
+[ext_resource type="Script" uid="uid://nqjnr4gldn6" path="res://Game/Game.cs" id="1_7raqb"]
+[ext_resource type="PackedScene" uid="uid://do42knwk0o0yn" path="res://Game/Player/player.tscn" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://c1bc5axudg13h" path="res://Game/Scenes/mob.tscn" id="2_1r4le"]
+[ext_resource type="Script" uid="uid://s023wb6focp" path="res://Game/Scripts/Camera.cs" id="4_jcm6v"]
+[ext_resource type="PackedScene" uid="uid://c8yx60fus1fpp" path="res://Game/Scenes/tree.tscn" id="5_fwxkx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oc8p"]
+albedo_color = Color(0, 0.32156864, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r4le"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7raqb"]
+material = SubResource("StandardMaterial3D_1r4le")
+
+[sub_resource type="Curve3D" id="Curve3D_1r4le"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8.984083, 0, -9.116397, 0, 0, 0, 0, 0, 0, 7.9046345, 0, -7.9997873, 0, 0, 0, 0, 0, 0, 6.788019, 0, 10.005535, 0, 0, 0, 0, 0, 0, -10.100691, 0, 9.0285015),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Game" type="Node3D" unique_id=94973041 node_paths=PackedStringArray("MobSpawnLocation", "Player")]
+script = ExtResource("1_7raqb")
+MobScene = ExtResource("2_1r4le")
+MobSpawnLocation = NodePath("SpawnLocation - Path3D/SpawnPath - PathFollow3D")
+Player = NodePath("Player")
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1368121489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_4oc8p")
+
+[node name="Game Light" type="DirectionalLight3D" parent="." unique_id=1896233060]
+transform = Transform3D(1, 0, 0, 0, 0.1507087, 0.9885782, 0, -0.9885782, 0.1507087, 0, 23.77074, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1423560179 instance=ExtResource("1_bk3v5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6883825, 0)
+
+[node name="CameraPivot - Marker3D" type="Marker3D" parent="." unique_id=542932975 node_paths=PackedStringArray("TrackedTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 20, 20)
+script = ExtResource("4_jcm6v")
+TrackedTarget = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot - Marker3D" unique_id=634604839]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+projection = 1
+size = 19.0
+far = 100.0
+
+[node name="Mob" parent="." unique_id=316725241 instance=ExtResource("2_1r4le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8401327, 0, 0)
+visible = false
+
+[node name="MobSpawner" type="Node3D" parent="." unique_id=628188506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MobSpawner" unique_id=1187703769]
+mesh = SubResource("BoxMesh_7raqb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MobSpawner" unique_id=987804715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 17)
+mesh = SubResource("BoxMesh_7raqb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MobSpawner" unique_id=1509944563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 18)
+mesh = SubResource("BoxMesh_7raqb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MobSpawner" unique_id=1377353378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -1)
+mesh = SubResource("BoxMesh_7raqb")
+
+[node name="SpawnLocation - Path3D" type="Path3D" parent="." unique_id=1091456752]
+visible = false
+curve = SubResource("Curve3D_1r4le")
+
+[node name="SpawnPath - PathFollow3D" type="PathFollow3D" parent="SpawnLocation - Path3D" unique_id=1964581349]
+transform = Transform3D(-0.06597163, 0, -0.9978215, 0, 1, 0, 0.9978215, 0, -0.06597163, -8.984083, 0, -9.116397)
+
+[node name="MobTimer - Timer" type="Timer" parent="." unique_id=520471877]
+wait_time = 0.5
+autostart = true
+
+[node name="Tree" parent="." unique_id=2019912007 instance=ExtResource("5_fwxkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[connection signal="timeout" from="MobTimer - Timer" to="." method="OnTimeout"]

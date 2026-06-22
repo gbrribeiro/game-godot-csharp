@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c1bc5axudg13h"]
+
+[ext_resource type="Script" uid="uid://b1ovymogipidn" path="res://Game/Scripts/Mob.cs" id="1_tjmru"]
+[ext_resource type="Script" uid="uid://dbi1xf2785j5w" path="res://Game/Scripts/Abstractions/Nodes/KillableNode.cs" id="2_wjnpv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ec7eo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8qry"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tjmru"]
+material = SubResource("StandardMaterial3D_u8qry")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m57qa"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wjnpv"]
+material = SubResource("StandardMaterial3D_m57qa")
+size = Vector3(0.5, 0.3, 0.5)
+
+[node name="Mob - CharacterBody3D" type="CharacterBody3D" unique_id=118577359]
+script = ExtResource("1_tjmru")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=666709340]
+shape = SubResource("CapsuleShape3D_ec7eo")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="." unique_id=1280940984]
+mesh = SubResource("CapsuleMesh_tjmru")
+
+[node name="EyeMesh" type="MeshInstance3D" parent="." unique_id=1654627664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6360789, -0.4205916)
+mesh = SubResource("BoxMesh_wjnpv")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1826152778]
+
+[node name="KillableNode - Node3D" type="Node3D" parent="." unique_id=1559766411]
+script = ExtResource("2_wjnpv")
+BaseHealth = 20.0
+Health = 20.0
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

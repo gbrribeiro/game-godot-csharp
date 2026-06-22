@@ -1,0 +1,10 @@
+root = true
+
+[*]
+charset = utf-8
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = silent
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = none
