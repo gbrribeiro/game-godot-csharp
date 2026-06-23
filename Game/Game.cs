@@ -3,12 +3,15 @@ using Godot;
 
 public partial class Game : Node3D
 {
-	[Export]
-	public PackedScene MobScene { get; set; }
-	[Export]
-	public PathFollow3D MobSpawnLocation { get; set; }
-	[Export]
-	public Player Player { get; set; }
+	[Export] public PackedScene MobScene { get; set; }
+	[Export] public PathFollow3D MobSpawnLocation { get; set; }
+	[Export] public Player Player { get; set; }
+
+    public override void _EnterTree()
+    {
+        ItemRegistry.RegisterAll();
+    }
+
 
 	private void OnTimeout()
 	{

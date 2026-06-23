@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8yx60fus1fpp"]
 
 [ext_resource type="Script" uid="uid://dbi1xf2785j5w" path="res://Game/Scripts/Abstractions/Nodes/KillableNode.cs" id="1_vysnn"]
+[ext_resource type="Script" uid="uid://cgpctnbysgj7s" path="res://Game/Scripts/Abstractions/Nodes/Item/DropItemNode.cs" id="2_x4cru"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcm6v"]
 albedo_color = Color(0.2767464, 0.18896344, 0, 1)
@@ -38,3 +39,7 @@ shape = SubResource("CapsuleShape3D_m235j")
 script = ExtResource("1_vysnn")
 BaseHealth = 20.0
 Health = 20.0
+
+[node name="DropWood" type="Node3D" parent="KillableNode - Node3D" unique_id=282473789]
+script = ExtResource("2_x4cru")
+ItemId = 1

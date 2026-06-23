@@ -2,9 +2,19 @@ using System.Collections.Generic;
 using Godot;
 public partial class KillableNode : Node3D
 {
+
+
     [Export] public float BaseHealth { get; set; } = 1f;
     [Export] public float Health { get; set; } = 1f;
-    // public List<Item> Drops { get; set; } = [];
+
+    public override void _Process(double delta)
+    {
+        if (Health > BaseHealth)
+            Health = BaseHealth;
+        if (Health <= 0)
+            Kill();
+    }
+
     public void TakeDamage(float damage)
     {
         Health -= damage;
@@ -14,14 +24,21 @@ public partial class KillableNode : Node3D
 
     public void Kill()
     {
+        DropItems();
         this.GetParent().QueueFree();
     }
 
-    public override void _Process(double delta)
+    
+    public void DropItems()
     {
-        if (Health > BaseHealth)
-            Health = BaseHealth;
-        if (Health <= 0)
-            Kill();
+        var children = this.GetChildren();
+        foreach (var child in children)
+        {
+            if(child is DropItemNode dropItemNode)
+            {
+                var parent = (Node3D) this.GetParent();
+                dropItemNode.Drop(dropItemNode.GetDropQuantity(), parent.Position);
+            }
+        }
     }
 }

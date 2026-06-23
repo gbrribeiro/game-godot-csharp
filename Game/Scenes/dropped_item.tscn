@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://duxb10gd4cvur"]
+
+[ext_resource type="Script" uid="uid://pmdmeag6jhj6" path="res://Game/Scripts/DroppedItem.cs" id="1_mhgmf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rk6mj"]
+radius = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_rk6mj"]
+
+[node name="DroppedItem" type="Node3D" unique_id=191296803]
+script = ExtResource("1_mhgmf")
+ItemId = 1
+
+[node name="CollectableHitbox - Area3D" type="Area3D" parent="." unique_id=1685000577]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectableHitbox - Area3D" unique_id=828961766]
+shape = SubResource("CylinderShape3D_rk6mj")
+
+[node name="PlaceHolderMesh" type="MeshInstance3D" parent="." unique_id=869412635]
+visible = false
+mesh = SubResource("PrismMesh_rk6mj")

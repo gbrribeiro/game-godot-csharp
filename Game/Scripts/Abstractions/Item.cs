@@ -5,5 +5,6 @@ public class Item
     public string DisplayName { get; set; }
     public int MaxStackSize { get; set; }
     public bool IsStackable => MaxStackSize > 1;
+    public string PathToScene { get; set; }
 
 }

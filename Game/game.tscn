@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bc5axudg13h" path="res://Game/Scenes/mob.tscn" id="2_1r4le"]
 [ext_resource type="Script" uid="uid://s023wb6focp" path="res://Game/Scripts/Camera.cs" id="4_jcm6v"]
 [ext_resource type="PackedScene" uid="uid://c8yx60fus1fpp" path="res://Game/Scenes/tree.tscn" id="5_fwxkx"]
+[ext_resource type="PackedScene" uid="uid://duxb10gd4cvur" path="res://Game/Scenes/dropped_item.tscn" id="6_qmv3x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oc8p"]
 albedo_color = Color(0, 0.32156864, 0.2, 1)
@@ -88,5 +89,9 @@ autostart = true
 
 [node name="Tree" parent="." unique_id=2019912007 instance=ExtResource("5_fwxkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="DroppedItem" parent="." unique_id=191296803 instance=ExtResource("6_qmv3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+visible = false
 
 [connection signal="timeout" from="MobTimer - Timer" to="." method="OnTimeout"]
