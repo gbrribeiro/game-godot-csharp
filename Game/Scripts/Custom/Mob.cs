@@ -5,12 +5,20 @@ using Godot;
 public partial class Mob : CharacterBody3D
 {
 	[Export]
-	public float MinSpeed { get; set; } = 10f;
+	public float MinSpeed { get; set; } = 5f;
 	[Export]
-	public float MaxSpeed { get; set; } = 18f;
+	public float MaxSpeed { get; set; } = 9f;
+
+	private float _RandomSpeed;
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		// We calculate a forward velocity that represents the speed.
+		Velocity = Vector3.Forward * _RandomSpeed;
+		// We then rotate the velocity vector based on the mob's Y rotation
+		// in order to move in the direction the mob is looking.
+		Velocity = Velocity.Rotated(Vector3.Up, Rotation.Y);
+
 		MoveAndSlide();
 	}
 
@@ -25,12 +33,7 @@ public partial class Mob : CharacterBody3D
 		RotateY((float)GD.RandRange(-Mathf.Pi / 4.0, Mathf.Pi / 4.0));
 
 		// We calculate a random speed (integer).
-		int randomSpeed = (int)GD.RandRange(MinSpeed, MaxSpeed);
-		// We calculate a forward velocity that represents the speed.
-		Velocity = Vector3.Forward * randomSpeed;
-		// We then rotate the velocity vector based on the mob's Y rotation
-		// in order to move in the direction the mob is looking.
-		Velocity = Velocity.Rotated(Vector3.Up, Rotation.Y);
+		_RandomSpeed = (int)GD.RandRange(MinSpeed, MaxSpeed);
 	}
 
 	// We also specified this function name in PascalCase in the editor's connection window.
