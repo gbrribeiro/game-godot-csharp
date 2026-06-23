@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1bc5axudg13h"]
 
-[ext_resource type="Script" uid="uid://b1ovymogipidn" path="res://Game/Scripts/Mob.cs" id="1_tjmru"]
-[ext_resource type="Script" uid="uid://dbi1xf2785j5w" path="res://Game/Scripts/Abstractions/Nodes/KillableNode.cs" id="2_wjnpv"]
+[ext_resource type="Script" uid="uid://b1ovymogipidn" path="res://Game/Scripts/Custom/Mob.cs" id="1_tjmru"]
+[ext_resource type="Script" uid="uid://dyc3qyvphksry" path="res://Game/Scripts/Properties/KillableProperty.cs" id="2_wjnpv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ec7eo"]
 
@@ -33,9 +33,9 @@ mesh = SubResource("BoxMesh_wjnpv")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1826152778]
 
-[node name="KillableNode - Node3D" type="Node3D" parent="." unique_id=1559766411]
+[node name="KillableProperty" type="Node" parent="." unique_id=1229470598]
 script = ExtResource("2_wjnpv")
-BaseHealth = 20.0
-Health = 20.0
+BaseHealth = 5.0
+Health = 5.0
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

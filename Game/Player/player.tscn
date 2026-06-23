@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://do42knwk0o0yn"]
 
-[ext_resource type="Script" uid="uid://b4jad70orq0o8" path="res://Game/Scripts/Player.cs" id="1_m57qa"]
-[ext_resource type="Script" uid="uid://dbi1xf2785j5w" path="res://Game/Scripts/Abstractions/Nodes/KillableNode.cs" id="2_s3asc"]
-[ext_resource type="Script" uid="uid://d1cmvjk5w0cqm" path="res://Game/Scripts/Abstractions/Nodes/AttackerNode.cs" id="3_letr6"]
+[ext_resource type="Script" uid="uid://b4jad70orq0o8" path="res://Game/Scripts/Custom/Player.cs" id="1_m57qa"]
+[ext_resource type="Script" uid="uid://dyc3qyvphksry" path="res://Game/Scripts/Properties/KillableProperty.cs" id="2_s3asc"]
+[ext_resource type="Script" uid="uid://dl08q3gqonwx4" path="res://Game/Scripts/Properties/AttackerProperty.cs" id="3_letr6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8qry"]
 
@@ -39,12 +39,13 @@ mesh = SubResource("BoxMesh_s3asc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0726612, -1)
 shape = SubResource("CylinderShape3D_letr6")
 
-[node name="KillableNode - Node3D" type="Node3D" parent="." unique_id=1393044732]
+[node name="KillableProperty" type="Node" parent="." unique_id=2093924740]
 script = ExtResource("2_s3asc")
-BaseHealth = 100.0
-Health = 100.0
+BaseHealth = 10.0
+Health = 10.0
 
-[node name="AttackerNode - Node3D" type="Node3D" parent="." unique_id=2093853822 node_paths=PackedStringArray("ShapeCast3D")]
+[node name="AttackerProperty" type="Node" parent="." unique_id=295712847 node_paths=PackedStringArray("ShapeCast3D")]
 script = ExtResource("3_letr6")
 Damage = 10.0
+AttackSpeed = 2.0
 ShapeCast3D = NodePath("../ShapeCast3D")

@@ -6,8 +6,8 @@ public partial class Player : CharacterBody3D
 
 	[Export] public float Gravity { get; set; } = 3f;
 
-	private KillableNode KillableNode { get; set; }
-	private AttackerNode AttackerNode { get; set; }
+	private KillableProperty KillableNode { get; set; }
+	private AttackerProperty AttackerNode { get; set; }
 
 	private Vector3 _TargetVelocity = Vector3.Zero;
 
@@ -17,9 +17,9 @@ public partial class Player : CharacterBody3D
 		var children = this.GetChildren();
 		foreach (var child in children)
 		{
-			if (child is KillableNode killableNode)
+			if (child is KillableProperty killableNode)
 				KillableNode = killableNode;
-			else if (child is AttackerNode attackerNode)
+			else if (child is AttackerProperty attackerNode)
 				AttackerNode = attackerNode;
 		}
 	}

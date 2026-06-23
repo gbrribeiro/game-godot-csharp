@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class TrackerNode : Node3D
+public partial class TrackerProperty : Node
 {
     [Export]
 	public Node3D TrackedTarget { get; set; }
@@ -8,11 +8,11 @@ public partial class TrackerNode : Node3D
 	private Vector3 _Offset;
 	public override void _Ready()
 	{
-		_Offset = this.Position - TrackedTarget.Position;
+		_Offset = this.GetParent<Node3D>().Position - TrackedTarget.Position;
 	}
 
 	public override void _Process(double delta)
 	{
-		this.Position = TrackedTarget.Position + _Offset;
+		this.GetParent<Node3D>().Position = TrackedTarget.Position + _Offset;
 	}
 }

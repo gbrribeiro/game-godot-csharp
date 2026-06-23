@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
-public partial class AttackerNode : Node
+public partial class AttackerProperty : Node
 {
     [Export] public float Damage { get; set; } = 1f;
     [Export] public float AttackSpeed { get; set; } = 1f; //Attacks per second
@@ -9,7 +9,7 @@ public partial class AttackerNode : Node
 
     private bool _CanAttack = true;
     private float _AttackCooldown = 0f;
-    private readonly HashSet<KillableNode> _KillableNodesInRange = [];
+    private readonly HashSet<KillableProperty> _KillableNodesInRange = [];
 
     public override void _Process(double delta)
     {
@@ -44,7 +44,7 @@ public partial class AttackerNode : Node
             var collider = ShapeCast3D.GetCollider(i);
             if (collider is Node node)
             {
-                var killableNode = node.GetNodeInChildren<KillableNode>();
+                var killableNode = node.GetNodeInChildren<KillableProperty>();
                 if (killableNode != null && !_KillableNodesInRange.Contains(killableNode))
                 {
                     _KillableNodesInRange.Add(killableNode);

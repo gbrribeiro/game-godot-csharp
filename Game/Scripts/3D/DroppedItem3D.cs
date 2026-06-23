@@ -1,8 +1,7 @@
 using Godot;
 
-public partial class DroppedItem : Node3D
+public partial class DroppedItem3D : Node3D
 {
-	// Called when the node enters the scene tree for the first time.
 	[Export] public float RotationsPerSecond { get; set; } = 0.3f;
 	[Export] public int ItemId {get;set;} = 0;
 	public Item Item { get; set; }

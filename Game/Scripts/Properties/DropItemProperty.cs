@@ -1,7 +1,7 @@
 using Godot;
 
 // Child of KillableNode
-public partial class DropItemNode : Node
+public partial class DropItemProperty : Node
 {
     [Export] public int ItemId { get; set; }
     [Export] public int ItemMinDrop { get; set; } = 1;
@@ -15,7 +15,7 @@ public partial class DropItemNode : Node
 
     public void Drop(int quantity, Vector3 position)
     {
-        var droppedItem = new DroppedItem
+        var droppedItem = new DroppedItem3D
         {
             ItemId = ItemId,
             Position = position

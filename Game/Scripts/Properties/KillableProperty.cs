@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Godot;
-public partial class KillableNode : Node3D
+public partial class KillableProperty : Node
 {
-
-
     [Export] public float BaseHealth { get; set; } = 1f;
     [Export] public float Health { get; set; } = 1f;
 
@@ -34,7 +32,7 @@ public partial class KillableNode : Node3D
         var children = this.GetChildren();
         foreach (var child in children)
         {
-            if(child is DropItemNode dropItemNode)
+            if(child is DropItemProperty dropItemNode)
             {
                 var parent = (Node3D) this.GetParent();
                 dropItemNode.Drop(dropItemNode.GetDropQuantity(), parent.Position);
