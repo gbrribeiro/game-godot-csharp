@@ -1,3 +1,5 @@
+#nullable disable
+
 public class Item
 {
     public int Id { get; set; }

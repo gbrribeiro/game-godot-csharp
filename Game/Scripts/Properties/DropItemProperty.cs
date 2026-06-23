@@ -1,3 +1,5 @@
+#nullable disable
+
 using Godot;
 
 // Child of KillableNode

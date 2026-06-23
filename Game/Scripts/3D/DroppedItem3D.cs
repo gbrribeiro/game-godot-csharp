@@ -1,3 +1,5 @@
+#nullable disable
+
 using Godot;
 
 public partial class DroppedItem3D : Node3D

@@ -1,8 +1,7 @@
 using Godot;
-
 public static class NodeUtils
 {
-    public static T? GetNodeInChildren<T>(this Node parent) where T : Node
+    public static T GetNodeInChildren<T>(this Node parent) where T : Node
     {
         foreach (var child in parent.GetChildren())
         {

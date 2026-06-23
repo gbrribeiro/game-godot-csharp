@@ -1,3 +1,5 @@
+#nullable disable
+
 using Godot;
 
 public partial class Mob : CharacterBody3D
