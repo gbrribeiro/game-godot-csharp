@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bc5axudg13h" path="res://Game/Scenes/mob.tscn" id="2_1r4le"]
 [ext_resource type="PackedScene" uid="uid://c8yx60fus1fpp" path="res://Game/Scenes/tree.tscn" id="5_fwxkx"]
 [ext_resource type="Script" uid="uid://b8qavfqdofj5p" path="res://Game/Scripts/Properties/TrackerProperty.cs" id="5_oomkl"]
+[ext_resource type="PackedScene" uid="uid://clhlju3sda8vp" path="res://Game/Scenes/Ui/hotbar.tscn" id="6_qmv3x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oc8p"]
 albedo_color = Color(0, 0.32156864, 0.2, 1)
@@ -90,5 +91,7 @@ autostart = true
 
 [node name="Tree" parent="." unique_id=2019912007 instance=ExtResource("5_fwxkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="Hotbar" parent="." unique_id=695406004 instance=ExtResource("6_qmv3x")]
 
 [connection signal="timeout" from="MobTimer - Timer" to="." method="OnTimeout"]
