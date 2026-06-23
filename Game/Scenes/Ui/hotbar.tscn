@@ -2,18 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bs4ynl4ha4wfk" path="res://Game/Scripts/Custom/HotbarGrid.cs" id="1_6s1ic"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmu2r"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.008603276, 0.61954886, 0.6346665, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s1ic"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -32,23 +20,14 @@ corner_detail = 5
 
 [node name="Control" type="Control" unique_id=695406004]
 layout_mode = 3
-anchor_left = 0.1
-anchor_top = 0.85
-anchor_right = 0.9
+anchor_left = 0.25
+anchor_top = 0.9
+anchor_right = 0.75
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Panel" type="Panel" parent="." unique_id=851545669]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kmu2r")
-
-[node name="HotbarGrid" type="GridContainer" parent="Panel" unique_id=663225282]
+[node name="HotbarGrid" type="GridContainer" parent="." unique_id=663225282]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,61 +37,60 @@ grow_vertical = 2
 columns = 10
 script = ExtResource("1_6s1ic")
 
-[node name="Panel" type="Panel" parent="Panel/HotbarGrid" unique_id=797761916]
+[node name="Button" type="Button" parent="HotbarGrid" unique_id=1684472429]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="HotbarGrid" unique_id=227779859]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel2" type="Panel" parent="Panel/HotbarGrid" unique_id=227779859]
+[node name="Panel3" type="Panel" parent="HotbarGrid" unique_id=1001362450]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel3" type="Panel" parent="Panel/HotbarGrid" unique_id=1001362450]
+[node name="Panel4" type="Panel" parent="HotbarGrid" unique_id=791844726]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel4" type="Panel" parent="Panel/HotbarGrid" unique_id=791844726]
+[node name="Panel5" type="Panel" parent="HotbarGrid" unique_id=203895867]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel5" type="Panel" parent="Panel/HotbarGrid" unique_id=203895867]
+[node name="Panel6" type="Panel" parent="HotbarGrid" unique_id=1778950361]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel6" type="Panel" parent="Panel/HotbarGrid" unique_id=1778950361]
+[node name="Panel7" type="Panel" parent="HotbarGrid" unique_id=2034265234]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel7" type="Panel" parent="Panel/HotbarGrid" unique_id=2034265234]
+[node name="Panel8" type="Panel" parent="HotbarGrid" unique_id=2087424746]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel8" type="Panel" parent="Panel/HotbarGrid" unique_id=2087424746]
+[node name="Panel9" type="Panel" parent="HotbarGrid" unique_id=26376546]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
 
-[node name="Panel9" type="Panel" parent="Panel/HotbarGrid" unique_id=26376546]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_6s1ic")
-
-[node name="Panel10" type="Panel" parent="Panel/HotbarGrid" unique_id=1291002509]
+[node name="Panel10" type="Panel" parent="HotbarGrid" unique_id=1291002509]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
