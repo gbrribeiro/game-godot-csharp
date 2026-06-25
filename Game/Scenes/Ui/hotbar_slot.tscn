@@ -1,40 +1,5 @@
 [gd_scene format=3 uid="uid://dqfmgi7p0anc8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jftt"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ms1c"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.22352941, 0.22352941, 0.22352941, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[node name="Button" type="Button" unique_id=53286210]
-custom_minimum_size = Vector2(66, 66)
-offset_right = 8.0
-offset_bottom = 8.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_3jftt")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4ms1c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4ms1c")
+[node name="Button" type="Button" unique_id=920516357]
+size_flags_horizontal = 3
+size_flags_vertical = 3

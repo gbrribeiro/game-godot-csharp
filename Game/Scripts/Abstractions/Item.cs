@@ -1,12 +1,15 @@
 #nullable disable
 
-public class Item
+using Godot;
+
+[GlobalClass]
+public partial class Item : Resource
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string DisplayName { get; set; }
-    public int MaxStackSize { get; set; }
+    [Export] public int Id { get; set; }
+    [Export] public string Name { get; set; }
+    [Export] public string DisplayName { get; set; }
+    [Export] public int MaxStackSize { get; set; }
     public bool IsStackable => MaxStackSize > 1;
-    public string PathToScene { get; set; }
+    [Export] public string PathToScene { get; set; }
 
 }

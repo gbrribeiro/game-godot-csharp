@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4jad70orq0o8" path="res://Game/Scripts/Custom/Player.cs" id="1_m57qa"]
 [ext_resource type="Script" uid="uid://dyc3qyvphksry" path="res://Game/Scripts/Properties/KillableProperty.cs" id="2_s3asc"]
 [ext_resource type="Script" uid="uid://dl08q3gqonwx4" path="res://Game/Scripts/Properties/AttackerProperty.cs" id="3_letr6"]
+[ext_resource type="PackedScene" uid="uid://clhlju3sda8vp" path="res://Game/Scenes/Ui/hotbar.tscn" id="4_vytja"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8qry"]
 
@@ -49,3 +50,5 @@ script = ExtResource("3_letr6")
 Damage = 10.0
 AttackSpeed = 2.0
 ShapeCast3D = NodePath("../ShapeCast3D")
+
+[node name="Hotbar" parent="." unique_id=695406004 instance=ExtResource("4_vytja")]
