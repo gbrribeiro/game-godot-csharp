@@ -17,6 +17,16 @@ public static class ItemRegistry
         _ItemsById[item.Id] = item;
     }
 
+    public static void UpdateItem(Item item)
+    {
+        if (_ItemsById.ContainsKey(item.Id))
+        {
+            _ItemsById.Remove(item.Id);
+            RegisterItem(item);
+        }
+        else RegisterItem(item);
+    }
+
     public static Item GetItemById(int id)
     {
         if (_ItemsById.TryGetValue(id, out var item))
@@ -38,5 +48,10 @@ public static class ItemRegistry
             PathToScene="res://Game/Models/Items/resource-wood.glb"
         };
         RegisterItem(wood);
+    }
+
+    public static Dictionary<int, Item> GetAll()
+    {
+        return _ItemsById;
     }
 }

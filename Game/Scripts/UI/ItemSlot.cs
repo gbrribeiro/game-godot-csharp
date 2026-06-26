@@ -9,9 +9,9 @@ public partial class ItemSlot : Button
 
     public override void _Ready()
     {
-        if(Item != null)
+        if(Item != null && !string.IsNullOrEmpty(Item.PathToIcon))
         {
-            this.Text = Item.DisplayName;
+            Icon = GD.Load<Texture2D>(Item.PathToIcon);
         }
     }
 }

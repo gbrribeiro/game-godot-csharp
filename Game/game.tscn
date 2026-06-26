@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://nqjnr4gldn6" path="res://Game/Game.cs" id="1_7raqb"]
 [ext_resource type="PackedScene" uid="uid://do42knwk0o0yn" path="res://Game/Player/player.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://c1bc5axudg13h" path="res://Game/Scenes/mob.tscn" id="2_1r4le"]
+[ext_resource type="PackedScene" uid="uid://d183etaoajsuj" path="res://Game/Scenes/Item/item_preview.tscn" id="3_qmv3x"]
 [ext_resource type="PackedScene" uid="uid://c8yx60fus1fpp" path="res://Game/Scenes/tree.tscn" id="5_fwxkx"]
 [ext_resource type="Script" uid="uid://b8qavfqdofj5p" path="res://Game/Scripts/Properties/TrackerProperty.cs" id="5_oomkl"]
 
@@ -25,6 +26,7 @@ point_count = 4
 [node name="Game" type="Node3D" unique_id=94973041 node_paths=PackedStringArray("MobSpawnLocation", "Player")]
 script = ExtResource("1_7raqb")
 MobScene = ExtResource("2_1r4le")
+ItemLoadScene = ExtResource("3_qmv3x")
 MobSpawnLocation = NodePath("SpawnLocation - Path3D/SpawnPath - PathFollow3D")
 Player = NodePath("Player")
 

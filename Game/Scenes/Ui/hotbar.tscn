@@ -44,5 +44,3 @@ script = ExtResource("1_6s1ic")
 layout_mode = 2
 script = ExtResource("4_mgat6")
 Item = SubResource("Resource_my24b")
-
-[connection signal="resized" from="CanvasLayer/Control/HotbarGrid" to="CanvasLayer/Control/HotbarGrid" method="OnRezised"]

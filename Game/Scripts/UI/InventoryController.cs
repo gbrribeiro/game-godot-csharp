@@ -12,12 +12,13 @@ public partial class InventoryController : Node
 	public override void _Ready()
 	{
 
-		var grid = this.FindChild("HotbarGrid",true) as GridContainer;
+		var grid = this.FindChild("HotbarGrid",true) as HotbarGrid;
 		grid.Columns = HotbarSlotsQuantity;
-		for (int i = 0; i < HotbarSlotsQuantity; i++)
+		for (int i = 1; i < HotbarSlotsQuantity; i++)
 		{
 			var slotInstance = HotbarSlotScene.Instantiate();
 			grid.AddChild(slotInstance);
+			grid.UpdateSlots();
 		}
 		
 		Instance = this;

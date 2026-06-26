@@ -11,5 +11,6 @@ public partial class Item : Resource
     [Export] public int MaxStackSize { get; set; }
     public bool IsStackable => MaxStackSize > 1;
     [Export] public string PathToScene { get; set; }
+    [Export] public string PathToIcon {get;set;}
 
 }

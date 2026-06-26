@@ -6,14 +6,26 @@ using Godot;
 public partial class Game : Node3D
 {
 	[Export] public PackedScene MobScene { get; set; }
+	[Export] public PackedScene ItemLoadScene { get; set; }
 	[Export] public PathFollow3D MobSpawnLocation { get; set; }
 	[Export] public Player Player { get; set; }
 
     public override void _EnterTree()
     {
         ItemRegistry.RegisterAll();
+		GenerateItemIcons();
     }
 
+	private void GenerateItemIcons()
+	{
+		var items = ItemRegistry.GetAll();
+		foreach (var item in items.Values)
+		{
+			var itemLoadInstance = ItemLoadScene.Instantiate() as ItemPreview;
+			itemLoadInstance.Item = item;
+			AddChild(itemLoadInstance);
+		}
+	}
 
 	private void OnTimeout()
 	{
@@ -32,4 +44,5 @@ public partial class Game : Node3D
 		// Spawn the mob by adding it to the Main scene.
 		AddChild(mob);
 	}
+
 }

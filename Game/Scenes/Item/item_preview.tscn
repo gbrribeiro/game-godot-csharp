@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d183etaoajsuj"]
+
+[ext_resource type="Script" uid="uid://c4t8uitfqa3nw" path="res://Game/Scripts/UI/ItemPreview.cs" id="1_1h6xf"]
+[ext_resource type="Script" uid="uid://fqpjqvpxwfy3" path="res://Game/Scripts/Abstractions/Item.cs" id="2_3msnc"]
+
+[sub_resource type="Resource" id="Resource_8wy7j"]
+script = ExtResource("2_3msnc")
+Id = 1
+Name = "Wood"
+DisplayName = "Wood Planks"
+MaxStackSize = 1
+PathToScene = "res://Game/Models/Items/resource-wood.glb"
+metadata/_custom_type_script = "uid://fqpjqvpxwfy3"
+
+[node name="ItemPreview" type="Node3D" unique_id=917223935]
+script = ExtResource("1_1h6xf")
+Item = SubResource("Resource_8wy7j")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2116522577]
+own_world_3d = true
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=1606166708]
+transform = Transform3D(1, 0, 0, 0, 0.8240669, 0.56649256, 0, -0.56649256, 0.8240669, 0, 2.044015, 2.4093971)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=2083352649]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 1, 1.5, 1)
+fov = 60.0
