@@ -12,6 +12,8 @@ Id = 1
 Name = "Wood"
 DisplayName = "Wood Planks"
 MaxStackSize = 1
+PathToScene = "res://Game/Models/Items/resource-wood.glb"
+PathToIcon = "res://Game/Images/1.png"
 metadata/_custom_type_script = "uid://fqpjqvpxwfy3"
 
 [node name="InventoryController" type="Node" unique_id=13905591]

@@ -2,6 +2,8 @@ using Godot;
 
 public partial class ItemPreview : Node3D
 {
+	[Signal] public delegate void PreviewReadyEventHandler();
+
 	public string SaveToPath {get;set;} = "res://Game/Images/";
 	[Export] public Item Item {get;set;}
 
@@ -28,14 +30,11 @@ public partial class ItemPreview : Node3D
         var img = _viewport.GetTexture().GetImage();
     	img.Convert(Image.Format.Rgba8);
         img.SavePng(SaveToPath);
+		// Item.PathToIcon=SaveToPath;
 
-		_RegisterItemIcon();
-
+		// ItemRegistry.UpdateItem(Item);
+		EmitSignal(SignalName.PreviewReady);
         QueueFree(); 
     }
 
-	private void _RegisterItemIcon()
-	{
-		ItemRegistry.UpdateItem(Item);
-	}
 }

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Survivor Tower Defense"
-run/main_scene="uid://ds8kwln6fw0dw"
+run/main_scene="uid://bcdn8kab2dj27"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

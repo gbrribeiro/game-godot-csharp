@@ -11,6 +11,7 @@ public partial class ItemSlot : Button
     {
         if(Item != null && !string.IsNullOrEmpty(Item.PathToIcon))
         {
+            this.ExpandIcon = true;
             Icon = GD.Load<Texture2D>(Item.PathToIcon);
         }
     }

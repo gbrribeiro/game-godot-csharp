@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bcdn8kab2dj27"]
+
+[ext_resource type="Script" uid="uid://bfh6hcxa6ntiw" path="res://Game/Scripts/Custom/LoadingInitialScene.cs" id="1_m10yl"]
+[ext_resource type="PackedScene" uid="uid://ds8kwln6fw0dw" path="res://Game/game.tscn" id="2_ayywj"]
+[ext_resource type="PackedScene" uid="uid://d183etaoajsuj" path="res://Game/Scenes/Item/item_preview.tscn" id="3_u62wv"]
+
+[node name="LoadingInitial" type="Node" unique_id=2057186440]
+script = ExtResource("1_m10yl")
+ScenesToLoad = Array[PackedScene]([ExtResource("3_u62wv")])
+MainScene = ExtResource("2_ayywj")
+ItemPreviewScene = ExtResource("3_u62wv")

@@ -45,7 +45,8 @@ public static class ItemRegistry
             DisplayName = "Wood",
             MaxStackSize = 10,
             Name= "Wood",
-            PathToScene="res://Game/Models/Items/resource-wood.glb"
+            PathToScene="res://Game/Models/Items/resource-wood.glb",
+            PathToIcon=$"res://Game/Images/{1}.png"
         };
         RegisterItem(wood);
     }
