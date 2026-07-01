@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bs4ynl4ha4wfk" path="res://Game/Scripts/Custom/HotbarGrid.cs" id="1_6s1ic"]
 [ext_resource type="Script" uid="uid://b1e338p5l1ltn" path="res://Game/Scripts/UI/InventoryController.cs" id="1_ryhor"]
 [ext_resource type="PackedScene" uid="uid://dqfmgi7p0anc8" path="res://Game/Scenes/Ui/hotbar_slot.tscn" id="3_ryhor"]
-[ext_resource type="Script" uid="uid://n3pavlxpn3tf" path="res://Game/Scripts/UI/ItemSlot.cs" id="4_mgat6"]
 [ext_resource type="Script" uid="uid://fqpjqvpxwfy3" path="res://Game/Scripts/Abstractions/Item.cs" id="5_mgat6"]
 
 [sub_resource type="Resource" id="Resource_my24b"]
@@ -44,5 +43,4 @@ script = ExtResource("1_6s1ic")
 
 [node name="Button" parent="CanvasLayer/Control/HotbarGrid" unique_id=920516357 instance=ExtResource("3_ryhor")]
 layout_mode = 2
-script = ExtResource("4_mgat6")
 Item = SubResource("Resource_my24b")

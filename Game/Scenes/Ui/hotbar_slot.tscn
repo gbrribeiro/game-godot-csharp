@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dqfmgi7p0anc8"]
 
+[ext_resource type="Script" uid="uid://n3pavlxpn3tf" path="res://Game/Scripts/UI/ItemSlot.cs" id="1_27k1a"]
+
 [node name="Button" type="Button" unique_id=920516357]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 clip_text = true
 icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_27k1a")

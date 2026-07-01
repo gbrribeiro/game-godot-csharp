@@ -27,4 +27,5 @@ public partial class InventoryController : Node
 	public override void _Process(double delta)
 	{
 	}
+
 }

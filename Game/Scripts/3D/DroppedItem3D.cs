@@ -7,6 +7,7 @@ public partial class DroppedItem3D : Node3D
 	[Export] public float RotationsPerSecond { get; set; } = 0.3f;
 	[Export] public int ItemId {get;set;} = 0;
 	public Item Item { get; set; }
+	public bool CanPickup { get; set; } = false;
 	public override void _Ready()
 	{
 		if(ItemId != 0)
@@ -40,5 +41,10 @@ public partial class DroppedItem3D : Node3D
 	public override void _Process(double delta)
 	{
 		RotateY(Mathf.Pi * 2 * RotationsPerSecond * (float)delta);
+	}
+
+	public void OnTimeout()
+	{
+		CanPickup = true;
 	}
 }
