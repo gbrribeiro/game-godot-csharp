@@ -6,20 +6,21 @@ public partial class ItemSlot : Button
     [Export] public Item Item {get;set;}
     [Export] public int Quantity {get;set;}
     public bool IsFull => Item.MaxStackSize == Quantity;
-
+    [Export] public Label label;
     public override void _Ready()
     {
         if(Item != null && !string.IsNullOrEmpty(Item.PathToIcon))
         {
             Icon = GD.Load<Texture2D>(Item.PathToIcon);
         }
+        label.Text = Quantity > 1 ? Quantity.ToString() : string.Empty;
     }
 
         public override Variant _GetDragData(Vector2 atPosition)
         {
             // bloqueia drag de slot vazio
             if (Item == null) return default;
-            
+
             var preview = new TextureRect
             {
                 Texture = this.Icon,
@@ -49,5 +50,26 @@ public partial class ItemSlot : Button
         // atualiza os ícones dos dois slots
         Icon        = Item != null ? GD.Load<Texture2D>(Item.PathToIcon) : null;
         origem.Icon = origem.Item != null ? GD.Load<Texture2D>(origem.Item.PathToIcon) : null;
+    }
+
+    public override void _Process(double delta)
+    {
+        if (int.TryParse(label.Text, out var currentQuantity))
+        {
+            if (Quantity != currentQuantity)
+            {
+                label.Text = Quantity > 1 ? Quantity.ToString() : string.Empty;
+            }
+        }
+        else
+        {
+            label.Text = Quantity > 1 ? Quantity.ToString() : string.Empty;
+        }
+        
+        if(Quantity < 1 && Item != null)
+        {
+            Item = null;
+            Icon = null;
+        }
     }
 }

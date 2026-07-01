@@ -10,15 +10,16 @@ script = ExtResource("5_mgat6")
 Id = 1
 Name = "Wood"
 DisplayName = "Wood Planks"
-MaxStackSize = 1
+MaxStackSize = 10
 PathToScene = "res://Game/Models/Items/resource-wood.glb"
 PathToIcon = "res://Game/Images/1.png"
 metadata/_custom_type_script = "uid://fqpjqvpxwfy3"
 
-[node name="InventoryController" type="Node" unique_id=13905591]
+[node name="InventoryController" type="Node" unique_id=13905591 node_paths=PackedStringArray("HotbarGrid")]
 script = ExtResource("1_ryhor")
 HotbarSlotsQuantity = 10
 HotbarSlotScene = ExtResource("3_ryhor")
+HotbarGrid = NodePath("CanvasLayer/Control/HotbarGrid")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=546686302]
 
@@ -44,3 +45,4 @@ script = ExtResource("1_6s1ic")
 [node name="Button" parent="CanvasLayer/Control/HotbarGrid" unique_id=920516357 instance=ExtResource("3_ryhor")]
 layout_mode = 2
 Item = SubResource("Resource_my24b")
+Quantity = 1

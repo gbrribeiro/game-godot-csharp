@@ -8,6 +8,7 @@ public partial class DropItemProperty : Node
     [Export] public int ItemId { get; set; }
     [Export] public int ItemMinDrop { get; set; } = 1;
     [Export] public int ItemMaxDrop { get; set; } = 1;
+    [Export] public PackedScene DroppedItemScene { get; set; }
 
     public int GetDropQuantity()
     {
@@ -17,11 +18,9 @@ public partial class DropItemProperty : Node
 
     public void Drop(int quantity, Vector3 position)
     {
-        var droppedItem = new DroppedItem3D
-        {
-            ItemId = ItemId,
-            Position = position
-        };
+        var droppedItem = DroppedItemScene.Instantiate<DroppedItem3D>();
+        droppedItem.ItemId = ItemId;
+        droppedItem.Position = position;
         GetTree().CurrentScene.AddChild(droppedItem);
     }
 

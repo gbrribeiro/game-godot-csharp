@@ -6,8 +6,10 @@ public partial class DroppedItem3D : Node3D
 {
 	[Export] public float RotationsPerSecond { get; set; } = 0.3f;
 	[Export] public int ItemId {get;set;} = 0;
+	[Export] public Timer Timer;
 	public Item Item { get; set; }
 	public bool CanPickup { get; set; } = false;
+
 	public override void _Ready()
 	{
 		if(ItemId != 0)
@@ -15,6 +17,7 @@ public partial class DroppedItem3D : Node3D
 			Item = ItemRegistry.GetItemById(ItemId);
 			LoadModel();
 		}
+		Timer.Start();
 	}
 	private void LoadModel()
     {
